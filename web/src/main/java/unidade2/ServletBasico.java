@@ -1,8 +1,11 @@
 package unidade2;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
+
 import java.io.IOException;
 
+@WebServlet
 public class ServletBasico implements Servlet {
 
 	@Override
