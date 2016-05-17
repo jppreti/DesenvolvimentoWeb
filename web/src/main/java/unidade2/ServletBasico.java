@@ -9,16 +9,16 @@ import java.io.IOException;
 public class ServletBasico implements Servlet {
 
 	public void init(ServletConfig config) throws ServletException {
-		System.out.println("MŽtodo init executado!");
+		System.out.println("Mï¿½todo init executado!");
 	}
 
 	public void service(ServletRequest req, ServletResponse res)
 			throws ServletException, IOException {
-		System.out.println("MŽtodo service executado!");
+		System.out.println("Mï¿½todo service executado!");
 	}
 
 	public void destroy() {
-		System.out.println("MŽtodo destroy executado!");
+		System.out.println("Mï¿½todo destroy executado!");
 	}
 
 	public ServletConfig getServletConfig() {
