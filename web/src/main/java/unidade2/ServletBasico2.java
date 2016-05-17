@@ -19,7 +19,7 @@ public class ServletBasico2 extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		PrintWriter out = res.getWriter();
-		out.print("Ol‡ Mundo!");
+		out.print("Ola Mundo!");
 	}
 }
 

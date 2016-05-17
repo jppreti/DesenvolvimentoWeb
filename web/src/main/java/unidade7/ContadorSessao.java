@@ -13,7 +13,6 @@ public class ContadorSessao implements HttpSessionListener {
 	public int maxSessionCount = 0;
 	public ServletContext context = null;
 	
-	@Override
 	public void sessionCreated(HttpSessionEvent evt) {
 		totalSessionCount++;
 		currentSessionCount++;
@@ -31,7 +30,6 @@ public class ContadorSessao implements HttpSessionListener {
 		context.setAttribute("contadorSessao", this);
 	}
 
-	@Override
 	public void sessionDestroyed(HttpSessionEvent evt) {
 		currentSessionCount--;
 	}

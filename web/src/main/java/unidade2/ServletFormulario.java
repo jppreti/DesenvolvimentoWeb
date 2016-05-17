@@ -20,7 +20,7 @@ public class ServletFormulario extends HttpServlet {
 			throws ServletException, IOException {
 		String nome = request.getParameter("txtNome");
 		PrintWriter out = response.getWriter();
-		out.print("Ol‡ " + nome);
+		out.print("Ola " + nome);
 	}
 
 }
