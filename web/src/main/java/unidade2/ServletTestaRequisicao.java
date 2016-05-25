@@ -22,7 +22,7 @@ public class ServletTestaRequisicao extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		StringBuffer saida = new StringBuffer();
 		saida.append("<html>");
-		saida.append("<h1>Cabeçalhos</h1><br />");
+		saida.append("<h1>Cabe√ßalhos</h1><br />");
 		Enumeration cabecalhos = request.getHeaderNames();
 		while (cabecalhos.hasMoreElements()) {
 			String cabecalho = (String) cabecalhos.nextElement();
