@@ -1,7 +1,6 @@
 package unidade2;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,13 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet("/consulta")
 public class ServletConsultaBanco extends HttpServlet {
 
 	public ServletConsultaBanco() {
@@ -24,6 +21,7 @@ public class ServletConsultaBanco extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		doPost(req, res);
 	}
 	
 	protected void doPost(HttpServletRequest req,
@@ -34,7 +32,7 @@ public class ServletConsultaBanco extends HttpServlet {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection con = DriverManager
-					.getConnection("jdbc:postgresql://localhost:5432/postgres",
+					.getConnection("jdbc:postgres://localhost:5432/postgres",
 							"postgres","postgres");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT nome, telefone, email"
