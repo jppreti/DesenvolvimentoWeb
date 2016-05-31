@@ -19,4 +19,13 @@
   	<url-pattern>/ServletBasico</url-pattern>
   </servlet-mapping>
   
+ <servlet>
+  	<servlet-name>ServletConsultaBanco</servlet-name>
+  	<servlet-class>unidade2.ServletConsultaBanco</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ServletConsultaBanco</servlet-name>
+  	<url-pattern>/consulta</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
