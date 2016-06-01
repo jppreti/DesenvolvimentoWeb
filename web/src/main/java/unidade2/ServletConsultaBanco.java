@@ -18,12 +18,14 @@ public class ServletConsultaBanco extends HttpServlet {
 	public ServletConsultaBanco() {
 		super();
 	}
-
+	
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
 		doPost(req, res);
 	}
 	
+	@Override
 	protected void doPost(HttpServletRequest req,
 						  HttpServletResponse res)
 			throws ServletException, IOException {
@@ -32,21 +34,25 @@ public class ServletConsultaBanco extends HttpServlet {
 		try {
 			Class.forName("org.postgresql.Driver");
 			Connection con = DriverManager
-					.getConnection("jdbc:postgres://localhost:5432/postgres",
-							"postgres","postgres");
+					.getConnection("jdbc:postgresql://localhost:5432/postgres",
+							"joaopaulodelgadopreti","postgres");
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT nome, telefone, email"
 					+ " FROM pessoa WHERE cpf = '" + cpf + "'");
 			rs.next();
+			res.getWriter().print("<html><head></head><body>");
 			res.getWriter().print("Nome: "+rs.getString("nome") + "<br />"
 					+ "e-mail: " + rs.getString("email") + "<br />"
 					+ "telefone: " + rs.getString("telefone"));
+			res.getWriter().print("</body></html>");
 			stmt.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
+			res.getWriter().print(e.getMessage());
 		} catch (SQLException e) {
 			e.printStackTrace();
+			res.getWriter().print(e.getMessage());
 		}
 	}
 	
