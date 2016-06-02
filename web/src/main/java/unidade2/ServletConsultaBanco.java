@@ -55,7 +55,4 @@ public class ServletConsultaBanco extends HttpServlet {
 			res.getWriter().print(e.getMessage());
 		}
 	}
-	
 }
-
-
