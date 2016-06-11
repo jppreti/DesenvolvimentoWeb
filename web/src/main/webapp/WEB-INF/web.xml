@@ -26,6 +26,5 @@
   <servlet-mapping>
   	<servlet-name>ServletConsultaBanco</servlet-name>
   	<url-pattern>/consulta</url-pattern>
-  </servlet-mapping>
-  
+  </servlet-mapping> 
 </web-app>

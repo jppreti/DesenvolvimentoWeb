@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/unidade2/ServletAdicionaOpcao")
+@WebServlet("/ServletAdicionaOpcao")
 public class ServletAdicionaOpcao extends HttpServlet {
 	
 	ArrayList<String> opcoes = new ArrayList<String>();
