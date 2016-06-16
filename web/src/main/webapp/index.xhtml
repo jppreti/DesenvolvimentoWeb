@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:outputText value="Olá Mundo!!!"/>
+	<br />
+	<h:form>
+		<h:commandButton value="Página 1" action="pagina1"/><br />
+		<h:commandButton value="Página 1 Sucesso" action="sucesso"/><br />
+		<h:commandLink value="Página 2" action="pagina2"/><br />
+		<h:commandLink value="Página 2 Falha" action="falha"/><br />
+		<h:outputLink value="pagina2.jsf" >
+			<h:outputText value="Página 2" />
+		</h:outputLink>	<br />
+	</h:form>
+</body> 
+</html>
