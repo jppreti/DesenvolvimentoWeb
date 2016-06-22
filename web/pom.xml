@@ -48,6 +48,17 @@
 			<version>2.2</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- Jersey Reference Implementation to Develop RESTful Web Service -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>1.19.1</version>
+		</dependency>		
 
 		<!-- *********************************************************************************************************** 
 			APPLICATION DEPENDENCIES The dependencies below are exclusive to this application 

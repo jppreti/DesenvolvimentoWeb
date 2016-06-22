@@ -6,7 +6,7 @@
 
 <h:head></h:head> 
 <body> 
-	<h:form>
+	<h:form id="frmLogin">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Login:" />
 			<h:inputText id="txtLogin" value="#{loginMB.nome}" />
@@ -16,6 +16,8 @@
 			
 			<h:commandButton value="Entrar" action="#{loginMB.login()}" />			
 		</h:panelGrid>
+		<h:outputText value="#{loginMB.msg}" />
+		<h:message for="frmLogin" />
 	</h:form>
 </body> 
 </html>
