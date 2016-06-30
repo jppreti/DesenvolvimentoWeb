@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+    <h:head>
+        <title>Gerenciador de Produtos</title>
+        
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="west"
+            			  width="200"
+            			  header="Atividades"
+                          resizable="true"
+                          closable="true"
+                          collapsible="true">
+                <h:form id="frmMenu">
+                    <p:commandLink 
+                    value="Novo Cliente"
+                    actionListener=
+    "#{clientePrimeMB.prepararAdicionarCliente}" 
+                    update=
+              ":frmEdicaoCliente:infosCliente"
+                    oncomplete=
+                    "dialogGerCliente.show()"/>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h1>Gerenciador de Clientes</h1>
+                <br/>
+                <h:message for="frmTabelaCliente" style="color:red;"/>
+                <h:form id="frmTabelaCliente">
+                    <p:dataTable id="tabela" var="c"
+                                 value="#{clientePrimeMB.clientes}">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nome"/>
+                            </f:facet>
+                            <h:outputText value="#{c.nome}" />
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="e-mail"/>
+                            </f:facet>
+                            <h:outputText value="#{c.email}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Telefone"/>
+                            </f:facet>
+                            <h:outputText value="#{c.telefone}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Notícias"/>
+                            </f:facet>
+                            <h:outputText value="#{c.receberNoticias}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Alterar"/>
+                            </f:facet>
+                            <p:commandButton
+                                actionListener="#{clientePrimeMB.prepararAlterarCliente}"
+                                value="Alterar" update=":frmEdicaoCliente:infosCliente"
+                                oncomplete="dialogGerCliente.show()"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Excluir"/>
+                            </f:facet>
+                            <h:commandLink action="#{clientePrimeMB.excluirCliente}"
+                                           value="Excluir"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:layoutUnit>
+        </p:layout>
+
+        <p:dialog header="Gerencia de Cliente" widgetVar="dialogGerCliente"
+                  resizable="false" modal="true" showEffect="slide" width="500">
+            <h:form id="frmEdicaoCliente">
+            	<h:message for="frmEdicaoCliente" style="color:red;"/>
+                <h:panelGrid id="infosCliente" columns="2" style="margin-bottom:10px">
+
+                    <h:outputLabel for="nome" value="Nome:" />
+                    <h:inputText id="nome" value="#{clientePrimeMB.cliente.nome}"/>
+
+                    <h:outputLabel for="email" value="e-mail:" />
+                    <h:inputText id="email" value="#{clientePrimeMB.cliente.email}"/>
+
+                    <h:outputLabel for="telefone" value="Telefone:" />
+                    <h:inputText id="telefone" value="#{clientePrimeMB.cliente.telefone}"/>
+
+                    <h:outputLabel for="receberNoticias" value="Receber Notícias:" />
+                    <h:selectBooleanCheckbox id="receberNoticias"
+                                     value="#{clientePrimeMB.cliente.receberNoticias}">
+                    </h:selectBooleanCheckbox>>
+
+                    <p:commandButton update=":frmTabelaCliente:tabela,:frmEdicaoCliente"
+                                     actionListener="#{clientePrimeMB.salvarCliente}"
+                                     value="Salvar Cliente"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+
+    </h:body> 
+</html>
