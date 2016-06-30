@@ -30,5 +30,16 @@
    <to-view-id>/login.xhtml</to-view-id>
   </navigation-case>
  </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/FrmCliente.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>sucesso</from-outcome>
+   <to-view-id>/login.xhtml</to-view-id>
+  </navigation-case>
+  <navigation-case>
+   <from-outcome>falha</from-outcome>
+   <to-view-id>/FrmCliente.xhtml</to-view-id>
+  </navigation-case>
+ </navigation-rule>
  <application/>
 </faces-config>
