@@ -5,7 +5,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
-public class LoginMB {
+public class LoginMB { 
 
 	private String nome;
 	private String senha;
@@ -28,11 +28,11 @@ public class LoginMB {
 	}
 	
 	public String login() {
-		if (nome!=null && nome.equals("admin"))
-			if (senha!=null && senha.equals("admin")) {
-				msg="";
-				return "sucesso";
-			}
+		for (Cliente c : Cliente.clientes)
+			if (c.getEmail().equals(nome))
+				if (c.getSenha().equals(senha))
+					return "sucesso";
+			
 		msg="Login ou Senha Inválidos!";
 		FacesContext
 			.getCurrentInstance()

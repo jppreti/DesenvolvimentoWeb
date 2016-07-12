@@ -32,13 +32,20 @@ public class ClientePrimeMB {
 	
 	public Cliente getCliente() { return cliente; }
 	public void setCliente(Cliente cliente) { this.cliente = cliente; }
-	public void prepararAlterarCliente(ActionEvent evt) { cliente = (Cliente)clientes.getRowData(); }
-	public void prepararAdicionarCliente(ActionEvent evt) {	cliente = new Cliente(); }
+	
+	public void prepararAlterarCliente(ActionEvent evt) {
+		cliente = (Cliente)clientes.getRowData();
+	}
+	public void prepararAdicionarCliente(ActionEvent evt) {
+		cliente = new Cliente(); 
+	}
 	
 	public void salvarCliente(ActionEvent evt) {
 			clientesBD.add(cliente);
 			cliente = new Cliente();
-			FacesContext.getCurrentInstance().addMessage("frmEdicaoCliente", new FacesMessage("Cliente Salvo com Sucesso!"));
+			FacesContext.getCurrentInstance()
+			.addMessage("frmEdicaoCliente",
+					new FacesMessage("Cliente Salvo com Sucesso!"));
 	}
 	
     public String excluirCliente(){
