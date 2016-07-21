@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form id="frmLogin">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Login:" />
+			<h:inputText id="txtLogin" value="#{login2MB.cliente}">
+				<f:converter converterId="ClienteConverter" />
+			</h:inputText>
+			
+			<h:outputLabel value="Senha:" />
+			<h:inputSecret id="txtSenha" value="#{login2MB.senha}" />
+			
+			<h:commandButton value="Entrar" action="#{login2MB.login()}" />			
+		</h:panelGrid>
+		<h:outputText value="#{login2MB.msg}" />
+		<h:message for="frmLogin" />
+		<br />
+		<h:outputLink value="FrmCliente.jsf" >
+			<h:outputText value="Novo Usuário" />
+		</h:outputLink>	<br />
+		
+		<h:commandLink value="Esqueci minha senha" action="#{clienteMB.redefinirSenha()}" />
+		
+		<h:panelGrid columns="2" rendered="#{clienteMB.esqueceuSenha}">
+			<h:outputLabel value="email:" />
+			<h:inputText id="txtEmail" value="#{clienteMB.cliente.email}" />
+			
+			<h:outputLabel value="telefone:" />
+			<h:inputText id="txtTelefone" value="#{clienteMB.cliente.telefone}" />
+			
+			<h:commandButton value="Resetar Senha" action="#{clienteMB.resetarSenha()}" />			
+		</h:panelGrid>		
+		<br />		
+	</h:form>
+</body> 
+</html>

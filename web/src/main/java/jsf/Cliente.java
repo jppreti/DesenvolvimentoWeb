@@ -1,6 +1,7 @@
 package jsf;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Cliente {
@@ -11,6 +12,7 @@ public class Cliente {
 	private String email;
 	private String telefone;
 	private String senha;
+	private Date dataNascimento;
 	private boolean receberNoticias = false;
 	
 	@Override
@@ -67,6 +69,12 @@ public class Cliente {
 		this.receberNoticias = receberNoticias;
 	}
 
-	
+	public Date getDataNascimento() {
+		return dataNascimento;
+	}
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	
 }

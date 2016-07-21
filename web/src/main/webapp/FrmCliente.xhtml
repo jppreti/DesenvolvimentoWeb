@@ -12,8 +12,15 @@
 		<h:panelGrid columns="3">
 			<h:outputLabel value="Nome:" />
 			<h:inputText id="txtNome" value="#{clienteMB.cliente.nome}">
+				<f:validateLength minimum="5" maximum="30" />
 			</h:inputText>
 			<h:message for="txtNome"></h:message>
+			
+			<h:outputLabel value="Data Nascimento:" />
+			<h:inputText id="txtDataNascimento" value="#{clienteMB.cliente.dataNascimento}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:inputText>
+			<h:message for="txtDataNascimento"></h:message>			
 			
 			<h:outputLabel value="e-mail:" />
 			<h:inputText id="txtEmail" value="#{clienteMB.cliente.email}">
