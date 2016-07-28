@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/Calculadora.jsp")
+@WebFilter("/segura/*")
 public class LoginFilter implements Filter {
 
     public LoginFilter() {    }
@@ -21,10 +21,11 @@ public class LoginFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpSession sessao = ((HttpServletRequest)request).getSession(false);
-		if (sessao!=null && sessao.getAttribute("login")!=null && sessao.getAttribute("login").equals(true)) {
+		if (sessao!=null && sessao.getAttribute("login")!=null &&
+				sessao.getAttribute("login").equals(true)) {
 			chain.doFilter(request, response);
 		} else {
-			((HttpServletResponse)response).sendRedirect("LoginComCookieSessao.jsp");
+			((HttpServletResponse)response).sendRedirect("/web/login.jsf");
 		}
 	}
 

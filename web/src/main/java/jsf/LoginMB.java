@@ -30,8 +30,13 @@ public class LoginMB {
 	public String login() {
 		for (Cliente c : Cliente.clientes)
 			if (c.getEmail().equals(nome))
-				if (c.getSenha().equals(senha))
+				if (c.getSenha().equals(senha)) {
+					FacesContext.getCurrentInstance()
+						.getExternalContext()
+						.getSessionMap()
+						.put("login", true);
 					return "sucesso";
+				}
 			
 		msg="Login ou Senha Inválidos!";
 		FacesContext
